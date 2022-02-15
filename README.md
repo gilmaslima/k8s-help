@@ -16,3 +16,6 @@ for p in $(kubectl get pods | grep Terminating | awk '{print $1}'); do kubectl d
 
 # Ver os logs do pod (parâmetro pod name)
 kubectl logs -f nginx-74d589986c-25mww 
+
+# Documentação dos recursos 
+kubectl explain deployments.spec.revisionHistoryLimit
