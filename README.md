@@ -24,3 +24,6 @@ kubectl explain deployments.spec.revisionHistoryLimit
 ### Ao criar um Service to tipo NodePort também é criado um ClusterIp
 ### Ao criar um Service to tipo LoadBalancer também são criados um NodePort e um ClusterIp
 ### O LoadBalancer rodando local não cria um EXTERNAL IP porque isso depende do Cloud provider
+
+## Conectando no shell do pod
+kubectl exec -ti nginx-fbdcfcfc5-5dhxr -- bash
