@@ -2,7 +2,7 @@
 
 
 
-# Cria o deployment pela linha de comando
+## Cria o deployment pela linha de comando
 kubectl create deployment nginx --image nginx --port=80
 
 # faz o expose do deployment
