@@ -27,3 +27,24 @@ kubectl explain deployments.spec.revisionHistoryLimit
 
 ## Conectando no shell do pod
 kubectl exec -ti nginx-fbdcfcfc5-5dhxr -- bash
+
+## Filtrando os pods por label
+kubectl get pods -l dc=UK
+
+## Adicionando o campo label no output
+kubectl get pod -L dc
+
+
+## Adicionando label ao node 
+kubectl label nodes k8-node0 disk=HDD
+
+## Sobreescrevendo um label no node
+kubectl label nodes k8-node0 disk=SSD --overwrite
+
+## Listando os labels de um node
+kubectl label nodes k8-node1 --list
+
+
+
+
+
