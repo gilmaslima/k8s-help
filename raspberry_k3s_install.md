@@ -29,4 +29,13 @@ docker info | grep -i cgroup
 ## instala o k3s no master
 curl -sfL https://get.k3s.io | sh -s - --docker 
 
+## pegar o token para ser usado nos nodes/workers
+cat /var/lib/rancher/k3s/server/node-token
+
+---------------------------------------------------------------
+
+
+
+
+
 
