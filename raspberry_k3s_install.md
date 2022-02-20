@@ -1,3 +1,4 @@
+# k3s raspberry pi
 
 ## atualizar o sistema
 apt update && apt upgrade -y
