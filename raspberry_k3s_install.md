@@ -34,8 +34,11 @@ cat /var/lib/rancher/k3s/server/node-token
 
 ---------------------------------------------------------------
 
+---------------------------------------------------------------
+# O comando abaixo deve ser executado apenas nos worker nodes
 
-
+## pegar o token no master e executar o comando abaixo para instalar o k3s no worker e adcionalo ao cluster como worker node
+curl -sfL https://get.k3s.io | K3S_URL=https://192.168.0.22:6443 K3S_TOKEN=K1071c516b7bafff0b300f4b51881c901fe777e60710c7c1cd41b07647aaec519ae::server:d0b7c93b0b0d616b39ca5f849298d508 sh - --docker
 
 
 
