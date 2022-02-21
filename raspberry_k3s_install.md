@@ -34,6 +34,32 @@ curl -sfL https://get.k3s.io | sh -s - --docker
 cat /var/lib/rancher/k3s/server/node-token
 
 ---------------------------------------------------------------
+# Troubleshooting
+## Caso os certificado do master tenha expirado vai exibir o erro abaixo
+## ERRO[0004] Failed to connect to proxy     error="x509: certificate is valid for 10.43.0.1, 127.0.0.1, 192.168.0.22, not 2804:14c:85:80f2:b870:7f42:f4c1:b233"
+
+## Passo 1 -Verificar a expiração do certificado
+openssl s_client -connect localhost:6443 -showcerts < /dev/null 2>&1 | openssl x509 -noout -enddate
+
+## Fazer backup do diretório TLS
+tar -czvf /var/lib/rancher/k3s/server/apphost-cert.tar.gz /var/lib/rancher/k3s/server/tls
+
+## Excluir o arquivo abaixo
+rm /var/lib/rancher/k3s/server/tls/dynamic-cert.json
+
+## Remover arquivo de cache
+kubectl --insecure-skip-tls-verify=true delete secret -n kube-system k3s-serving
+
+## Reiniciar o k3s
+systemctl restart k3s
+
+## Verificando o status do cluster
+systemctl restart k3s
+
+## Executar comando do Passo 1 para verificar a data de expiração
+
+
+---------------------------------------------------------------
 
 ---------------------------------------------------------------
 # O comando abaixo deve ser executado apenas nos worker nodes
