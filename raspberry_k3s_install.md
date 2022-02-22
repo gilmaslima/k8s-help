@@ -54,7 +54,7 @@ kubectl --insecure-skip-tls-verify=true delete secret -n kube-system k3s-serving
 systemctl restart k3s
 
 ## Verificando o status do cluster
-systemctl restart k3s
+systemctl status k3s
 
 ## Executar comando do Passo 1 para verificar a data de expiração
 
