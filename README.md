@@ -45,6 +45,21 @@ kubectl label nodes k8-node0 disk=SSD --overwrite
 kubectl label nodes k8-node1 --list
 
 
+## Comandos - Rollouts e Rollbacks
+kubectl rollout history ds daemon-set-primeiro
+
+kubectl rollout history ds daemon-set-primeiro --revision=1
+
+kubectl rollout history ds daemon-set-primeiro --revision=2
+
+kubectl rollout undo ds daemon-set-primeiro --to-revision=1
+
+kubectl rollout status ds daemon-set-primeiro 
+
+kubectl describe daemon-set-primeiro-hp4qc | grep -i image:
+
+kubectl delete -f primeiro-daemonset.yaml
+
 
 
 
