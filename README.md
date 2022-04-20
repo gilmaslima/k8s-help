@@ -44,6 +44,12 @@ kubectl label nodes k8-node0 disk=SSD --overwrite
 ## Listando os labels de um node
 kubectl label nodes k8-node1 --list
 
+## Deleteando um label de um ou mais nodes. (disk é o nome do label)
+kubectl label nodes --all disk- 
+
+## Deleteando um label de um node específico. (disk é o nome do label)
+kubectl label nodes k8s-master disk-
+
 
 ## Comandos - Rollouts e Rollbacks
 kubectl rollout history ds daemon-set-primeiro
