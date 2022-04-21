@@ -1,4 +1,4 @@
-### Adicionando Volumes ao cluster
+# Adicionando Volumes ao cluster
 
 ## Instalar o nfs server no master
 sudo su -
@@ -10,4 +10,55 @@ apt install nfs-kernel-server
 sudo su -
 
 apt install nfs-common
+
+## Criando um volume no Master e compartillhando via NFS
+<code>
+mkdir /opt/dados<br>
+chmod 1777 /opt/dados<br>
+echo "/opt/dados *(rw,sync,no_root_squash,subtree_check)" >> /etc/exports<br>
+exportfs -ar
+</code>
+
+# Exemplo de persistence volume
+<code> 
+apiVersion: v1<br>
+kind: PersistentVolume<br>
+metadata:<br>
+&nbsp; name: primeiro-pv<br>
+spec:<br>
+  &nbsp; capacity:<br>
+  &nbsp; &nbsp; storage: 1Gi<br>
+  &nbsp; accessModes:<br>
+  &nbsp; - ReadWriteMany<br>
+  &nbsp; persistentVolumeReclaimPolicy: Retain<br>
+  &nbsp; nfs:<br>
+  &nbsp; &nbsp; path: /opt/giropops<br>
+  &nbsp; &nbsp; server: k8s-master<br>
+  &nbsp; &nbsp; readOnly: false<br>
+<br>  
+</code> 
+
+* server ->  k8s-master é o dns name de onde está sendo compartilhado o diretório, também pode ser usado o IP
+* possíveis accessModes: <br>
+| ReadWriteMany ->  pode ser montado por vários nodes como leitura e escrita<br>
+| ReadWriteOnce -> Pode ser montado apenas uma vez e como escrita<br>
+| ReadOnlyMany -> Pode ser montado por vários nodes como leitura<br>
+
+# Exemplo de persistence volume
+
+<code>
+apiVersion: v1<br>
+kind: PersistentVolumeClaim<br>
+metadata:<br>
+&nbsp; name: primeiro-pvc<br>
+spec:<br>
+&nbsp; accessModes:<br>
+&nbsp; - ReadWriteMany<br>
+&nbsp; resources: <br>
+&nbsp; &nbsp; requests:<br>
+&nbsp; &nbsp; &nbsp; storage: 800Mi<br>
+</code>
+
+
+
 
