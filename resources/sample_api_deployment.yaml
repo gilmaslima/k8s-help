@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  generation: 1
+  labels:
+    app: node-sample-api
+  name: node-sample-api
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: node-sample-api
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: node-sample-api
+    spec:
+      containers:
+      - image: gilmaslima/node-sample-api
+        imagePullPolicy: Always
+        name: node-sample-api
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30

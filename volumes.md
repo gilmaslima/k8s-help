@@ -18,6 +18,33 @@ chmod 1777 /opt/dados<br>
 echo "/opt/dados *(rw,sync,no_root_squash,subtree_check)" >> /etc/exports<br>
 exportfs -ar
 </code>
+<br>
+<br>
+
+## O K3s não vem com um Provisioner por padrão, é preciso instala-lo
+nano /var/lib/rancher/k3s/server/manifests/nfs.yaml
+
+<code>
+apiVersion: helm.cattle.io/v1<br>
+kind: HelmChart<br>
+metadata:<br>
+&nbsp;  name: nfs<br>
+&nbsp; namespace: default<br>
+spec:<br>
+&nbsp; chart: nfs-subdir-external-provisioner<br>
+&nbsp; repo: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner<br>
+&nbsp; targetNamespace: default<br>
+&nbsp; set:<br>
+&nbsp; &nbsp; nfs.server: 192.168.0.22<br>
+&nbsp; &nbsp; nfs.path: /opt/dados<br>
+&nbsp; &nbsp; storageClass.name: nfs<br>
+</code>
+<br>
+
+systemctl restart k3s
+<br>
+<br>
+
 
 # Exemplo de persistence volume
 <code> 
@@ -54,11 +81,11 @@ metadata:<br>
 spec:<br>
 &nbsp; accessModes:<br>
 &nbsp; - ReadWriteMany<br>
+&nbsp; storageClassName: nfs<br>
 &nbsp; resources: <br>
 &nbsp; &nbsp; requests:<br>
 &nbsp; &nbsp; &nbsp; storage: 800Mi<br>
 </code>
-
-
-
+<br>
+<br>
 

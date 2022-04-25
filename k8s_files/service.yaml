@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: testeapp
+  labels:
+    app: testeapp
+  namespace: default
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: web
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: testeapp
+  sessionAffinity: None
+  type: NodePort
