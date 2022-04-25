@@ -28,19 +28,19 @@ exportfs -ar
 nano /var/lib/rancher/k3s/server/manifests/nfs.yaml
 
 ```
-apiVersion: helm.cattle.io/v1<br>
-kind: HelmChart<br>
-metadata:<br>
-&nbsp;  name: nfs<br>
-&nbsp; namespace: default<br>
-spec:<br>
-&nbsp; chart: nfs-subdir-external-provisioner<br>
-&nbsp; repo: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner<br>
-&nbsp; targetNamespace: default<br>
-&nbsp; set:<br>
-&nbsp; &nbsp; nfs.server: 192.168.0.22<br>
-&nbsp; &nbsp; nfs.path: /opt/dados<br>
-&nbsp; &nbsp; storageClass.name: nfs<br>
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: nfs
+  namespace: default
+spec:
+  chart: nfs-subdir-external-provisioner
+  repo: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+  targetNamespace: default
+  set:
+    nfs.server: 192.168.0.22
+    nfs.path: /opt/dados
+    storageClass.name: nfs
 ```
 <br>
 
