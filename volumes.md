@@ -14,8 +14,11 @@ apt install nfs-common
 ## Criando um volume no Master e compartillhando via NFS
 <code>
 mkdir /opt/dados<br>
+  
 chmod 1777 /opt/dados<br>
+  
 echo "/opt/dados *(rw,sync,no_root_squash,subtree_check)" >> /etc/exports<br>
+
 exportfs -ar
 </code>
 <br>
