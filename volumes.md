@@ -50,23 +50,26 @@ systemctl restart k3s
 
 
 # Exemplo de persistence volume
-<code> 
-apiVersion: v1<br>
-kind: PersistentVolume<br>
-metadata:<br>
-&nbsp; name: primeiro-pv<br>
-spec:<br>
-  &nbsp; capacity:<br>
-  &nbsp; &nbsp; storage: 1Gi<br>
-  &nbsp; accessModes:<br>
-  &nbsp; - ReadWriteMany<br>
-  &nbsp; persistentVolumeReclaimPolicy: Retain<br>
-  &nbsp; nfs:<br>
-  &nbsp; &nbsp; path: /opt/giropops<br>
-  &nbsp; &nbsp; server: k8s-master<br>
-  &nbsp; &nbsp; readOnly: false<br>
-<br>  
-</code> 
+
+
+```
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: primeiro-pv
+spec:
+  capacity:
+    storage: 1Gi
+    accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    path: /opt/giropops
+    server: k8s-master
+    readOnly: false
+
+```
+<br>
 
 * server ->  k8s-master é o dns name de onde está sendo compartilhado o diretório, também pode ser usado o IP
 * possíveis accessModes: <br>
@@ -76,19 +79,20 @@ spec:<br>
 
 # Exemplo de persistence volume
 
-<code>
-apiVersion: v1<br>
-kind: PersistentVolumeClaim<br>
-metadata:<br>
-&nbsp; name: primeiro-pvc<br>
-spec:<br>
-&nbsp; accessModes:<br>
-&nbsp; - ReadWriteMany<br>
-&nbsp; storageClassName: nfs<br>
-&nbsp; resources: <br>
-&nbsp; &nbsp; requests:<br>
-&nbsp; &nbsp; &nbsp; storage: 800Mi<br>
-</code>
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: primeiro-pvc
+spec:
+  accessModes:
+  - ReadWriteMany
+  storageClassName: nfs
+  resources:
+    requests:
+      storage: 800Mi
+```
+
 <br>
 <br>
 
