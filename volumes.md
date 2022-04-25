@@ -27,7 +27,7 @@ exportfs -ar
 ## O K3s não vem com um Provisioner por padrão, é preciso instala-lo
 nano /var/lib/rancher/k3s/server/manifests/nfs.yaml
 
-<code>
+```
 apiVersion: helm.cattle.io/v1<br>
 kind: HelmChart<br>
 metadata:<br>
@@ -41,7 +41,7 @@ spec:<br>
 &nbsp; &nbsp; nfs.server: 192.168.0.22<br>
 &nbsp; &nbsp; nfs.path: /opt/dados<br>
 &nbsp; &nbsp; storageClass.name: nfs<br>
-</code>
+```
 <br>
 
 systemctl restart k3s
