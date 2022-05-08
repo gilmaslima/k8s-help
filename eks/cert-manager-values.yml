@@ -1,0 +1,6 @@
+intallCRDs: true
+
+securityContext:
+  enabled: true
+  fsGroup: 1001
+
