@@ -31,6 +31,12 @@ reboot
 curl https://releases.rancher.com/install-docker/19.03.sh | sh
 ```
 
+## Caso o release do rancher não estiver disponível procurar no repositório github deles
+```
+https://github.com/rancher/install-docker
+```
+
+
 ## verificar se o cgroup esta configurado
 ```
 docker info | grep -i cgroup
