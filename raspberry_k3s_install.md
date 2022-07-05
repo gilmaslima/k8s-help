@@ -59,7 +59,7 @@ cat /var/lib/rancher/k3s/server/node-token
 
 ---------------------------------------------------------------
 # Troubleshooting
-## Caso os certificado do master tenha expirado vai exibir o erro abaixo
+## Caso o certificado do master tenha expirado vai exibir o erro abaixo
 ## ERRO[0004] Failed to connect to proxy     error="x509: certificate is valid for 10.43.0.1, 127.0.0.1, 192.168.0.22, not 2804:14c:85:80f2:b870:7f42:f4c1:b233"
 
 ## Passo 1 -Verificar a expiração do certificado
