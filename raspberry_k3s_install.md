@@ -112,3 +112,8 @@ k3s agent --token K1071c516b7bafff0b300f4b51881c901fe777e60710c7c1cd41b07647aaec
 
 ## caso seja necessario desinstalar
 /usr/local/bin/k3s-uninstall.sh
+
+## repositório de versões do k3s
+```
+https://github.com/k3s-io/k3s/releases/tag/v1.22.6%2Bk3s1
+```
