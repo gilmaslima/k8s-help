@@ -28,7 +28,7 @@ reboot
 
 ## instalar o docker do repositório do rancher
 ```
-curl https://releases.rancher.com/install-docker/19.03.sh | sh
+curl https://releases.rancher.com/install-docker/20.10.sh | sh
 ```
 
 ## Caso o release do rancher não estiver disponível procurar no repositório github deles
