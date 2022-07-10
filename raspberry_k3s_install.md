@@ -107,7 +107,7 @@ curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.22.6+k3s1 INSTALL_K3S_SKIP
 
 ## pegar o token no master e executar o comando abaixo para instalar o k3s no worker e adcionalo ao cluster como worker node
 ```
-k3s agent --token K1071c516b7bafff0b300f4b51881c901fe777e60710c7c1cd41b07647aaec519ae::server:d0b7c93b0b0d616b39ca5f849298d508 --server https://192.168.0.22:6443 --docker
+nohup k3s agent --token K106aec0d246b8a2b5bd08ad4a4249aa1707de1bc1268da8a18de9f6c2b21530bfc::server:5443b13f487f80a4879bff5e71312c01 --server https://192.168.0.22:6443 --docker &>/dev/null &
 ```
 
 ## caso seja necessario desinstalar
