@@ -127,5 +127,9 @@ update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 ```
 
 
+###############################
+Local volume
 
+K3s Static folder for volume
+https://blog.differentpla.net/blog/2021/12/17/k3s-static-pv/
 
