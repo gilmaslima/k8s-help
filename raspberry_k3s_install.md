@@ -133,3 +133,7 @@ Local volume
 K3s Static folder for volume
 https://blog.differentpla.net/blog/2021/12/17/k3s-static-pv/
 
+##################$$$$$$$$
+
+USB as volume
+https://forum.endeavouros.com/t/tutorial-how-to-permanently-mount-external-internal-drives-in-linux/18688
