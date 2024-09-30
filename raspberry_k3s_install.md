@@ -133,6 +133,9 @@ Local volume
 K3s Static folder for volume
 https://blog.differentpla.net/blog/2021/12/17/k3s-static-pv/
 
+static local Volume work around
+https://mrkandreev.name/snippets/how_to_move_k3s_data_to_another_location/#:~:text=The%20standard%20data%20location%20used,can%20use%20separate%20data%20volume.
+
 ##################$$$$$$$$
 
 USB as volume
